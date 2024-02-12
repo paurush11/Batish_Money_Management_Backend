@@ -1,4 +1,4 @@
-package com.example.batishMoneyManager;
+package com.example.batishMoneyManager.config;
 
 import com.example.batishMoneyManager.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+
+
 public class JwtSecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;

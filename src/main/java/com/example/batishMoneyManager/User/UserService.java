@@ -3,6 +3,7 @@ package com.example.batishMoneyManager.User;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.batishMoneyManager.jpa.UserResourceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +33,12 @@ public class UserService {
 	public Optional<User> getUserById(Integer Id){
 		return repository.findById(Id);
 	}
-	
 	public List<User> getAllUsers(){
 		return repository.findAll();
 	}
-	
+
+	public void deleteUser(User user) {
+		repository.delete(user);
+	}
+
 }

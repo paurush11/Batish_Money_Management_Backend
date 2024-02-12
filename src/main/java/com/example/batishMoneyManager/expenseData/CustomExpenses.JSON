@@ -10,7 +10,8 @@
     "reminders": true,
     "notes": "Monthly electricity bill",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Car Insurance",
@@ -23,7 +24,8 @@
     "reminders": false,
     "notes": "Annual car insurance payment",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Grocery Shopping",
@@ -36,7 +38,8 @@
     "reminders": true,
     "notes": "Weekly groceries",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Rent Payment",
@@ -49,7 +52,8 @@
     "reminders": true,
     "notes": "Monthly rent for apartment",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Health Insurance",
@@ -62,7 +66,8 @@
     "reminders": false,
     "notes": "Yearly health insurance premium",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Netflix Subscription",
@@ -75,7 +80,8 @@
     "reminders": false,
     "notes": "Monthly streaming service fee",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Mobile Phone Bill",
@@ -88,7 +94,8 @@
     "reminders": true,
     "notes": "Monthly mobile plan",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Gym Membership",
@@ -101,7 +108,8 @@
     "reminders": false,
     "notes": "Monthly gym fees",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Water Bill",
@@ -114,7 +122,8 @@
     "reminders": true,
     "notes": "Monthly water usage bill",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Internet Service",
@@ -127,7 +136,8 @@
     "reminders": true,
     "notes": "High-speed internet plan",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Car Loan Payment",
@@ -140,7 +150,8 @@
     "reminders": false,
     "notes": "Monthly car loan installment",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Home Mortgage",
@@ -153,7 +164,8 @@
     "reminders": true,
     "notes": "Monthly mortgage payment",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Childcare Fees",
@@ -166,7 +178,8 @@
     "reminders": false,
     "notes": "Monthly childcare service fee",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Pet Care",
@@ -179,7 +192,8 @@
     "reminders": true,
     "notes": "Monthly pet grooming and food",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Gas Bill",
@@ -192,7 +206,8 @@
     "reminders": false,
     "notes": "Monthly natural gas bill",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Car Maintenance",
@@ -205,7 +220,8 @@
     "reminders": true,
     "notes": "Quarterly car service and maintenance",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "School Fees",
@@ -218,7 +234,8 @@
     "reminders": false,
     "notes": "Quarterly school tuition fees",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Travel Savings",
@@ -231,7 +248,8 @@
     "reminders": true,
     "notes": "Monthly savings for annual vacation",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Book Club Subscription",
@@ -244,7 +262,8 @@
     "reminders": false,
     "notes": "Monthly book club membership fee",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Yoga Classes",
@@ -257,7 +276,8 @@
     "reminders": true,
     "notes": "Monthly yoga studio membership",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Dental Checkup",
@@ -270,7 +290,8 @@
     "reminders": false,
     "notes": "Annual dental checkup and cleaning",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Home Repairs Fund",
@@ -283,7 +304,8 @@
     "reminders": true,
     "notes": "Quarterly savings for home maintenance",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Professional Development Course",
@@ -296,7 +318,8 @@
     "reminders": false,
     "notes": "Annual fee for professional training course",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   },
   {
     "name": "Charity Donation",
@@ -309,7 +332,8 @@
     "reminders": true,
     "notes": "Monthly donation to a charity organization",
     "automaticBillDetection": true,
-    "alertsForPriceChanges": false
+    "alertsForPriceChanges": false,
+    "user_id": 204
   },
   {
     "name": "Art Class Fees",
@@ -322,6 +346,7 @@
     "reminders": false,
     "notes": "Monthly fees for art classes",
     "automaticBillDetection": false,
-    "alertsForPriceChanges": true
+    "alertsForPriceChanges": true,
+    "user_id": 204
   }
 ]

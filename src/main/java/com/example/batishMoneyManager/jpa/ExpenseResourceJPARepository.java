@@ -1,17 +1,19 @@
-package com.example.batishMoneyManager.expenseData;
+package com.example.batishMoneyManager.jpa;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.example.batishMoneyManager.expenseData.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.Id;
-
+@EnableJpaRepositories
 @Repository
-public interface ExpenseResourceRepository extends JpaRepository<ExpenseData, Integer> {
+public interface ExpenseResourceJPARepository extends JpaRepository<ExpenseData, Integer> {
 	<S extends ExpenseData> S save(S entity);
 
 	<S extends ExpenseData> List<S> saveAll(Iterable<S> entities);

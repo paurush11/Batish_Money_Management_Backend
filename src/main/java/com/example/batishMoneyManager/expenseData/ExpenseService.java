@@ -3,15 +3,16 @@ package com.example.batishMoneyManager.expenseData;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.batishMoneyManager.jpa.ExpenseResourceJPARepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ExpenseService {
-	private final ExpenseResourceRepository repository;
+	private final ExpenseResourceJPARepository repository;
 	
-	public ExpenseService(ExpenseResourceRepository repository) {
+	public ExpenseService(ExpenseResourceJPARepository repository) {
 		this.repository = repository;
 	}
 
@@ -79,18 +80,4 @@ public class ExpenseService {
 	public Page<ExpenseData> getExpensesByPaymentMethodWithPagination(PaymentMethod paymentMethod, Pageable pageable) {
 		return repository.findByPaymentMethod(paymentMethod, pageable);
 	}
-//	private static List<ExpenseData> Expenses = new ArrayList<>();
-//
-//	private static int ExpenseCount = 0;
-//	static DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
-//
-//	static {
-//		Expenses.add(new ExpenseData("Shah-Palmer",
-//				LocalDateTime.parse("2022-07-19T07:34:53.788636", formatter).toString(), 78.47, Frequency.monthly,
-//				Category.rent, PaymentStatus.paid, PaymentMethod.bank_transfer, false, "", true, false, ""));
-//		Expenses.add(new ExpenseData("Groceries", LocalDateTime.now().toString(), 150.00, Frequency.monthly,
-//				Category.utilities, PaymentStatus.unpaid, PaymentMethod.cash, true, "Weekly groceries", false, true,
-//				"Custom View"));
-//	}
-
 }

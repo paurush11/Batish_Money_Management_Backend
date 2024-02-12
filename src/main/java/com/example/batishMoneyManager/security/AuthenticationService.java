@@ -2,7 +2,7 @@ package com.example.batishMoneyManager.security;
 
 import com.example.batishMoneyManager.User.Role;
 import com.example.batishMoneyManager.User.User;
-import com.example.batishMoneyManager.User.UserResourceRepository;
+import com.example.batishMoneyManager.jpa.UserResourceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,10 +17,15 @@ public class AuthenticationService {
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
-
     public AuthResponse register(RegisterRequest request) {
         var password = request.getPassword();
-
+        var userExists = repository.findByUserName(request.getUserName());
+        if(userExists.isPresent()){
+            System.out.println(userExists.get());
+            System.out.println("Phle se tha bc");
+            var jwtToken = jwtUtil.generateToken(userExists.get());
+            return AuthResponse.builder().Token(jwtToken).ExistedBefore(true).build();
+        }
         var user = User
                 .builder()
                 .firstName(request.getFirstName())
@@ -33,7 +38,7 @@ public class AuthenticationService {
                 .build();
         repository.save(user);
         var jwtToken = jwtUtil.generateToken(user);
-        return AuthResponse.builder().Token(jwtToken).build();
+        return AuthResponse.builder().Token(jwtToken).ExistedBefore(false).build();
     }
 
     public AuthResponse authenticate(AuthenticationRequest request) {
@@ -45,6 +50,6 @@ public class AuthenticationService {
         );
         var user = repository.findByUserName(request.getUserName()).orElseThrow();
         var jwtToken = jwtUtil.generateToken(user);
-        return AuthResponse.builder().Token(jwtToken).build();
+        return AuthResponse.builder().Token(jwtToken).ExistedBefore(true).build();
     }
 }

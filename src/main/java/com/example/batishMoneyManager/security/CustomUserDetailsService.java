@@ -1,6 +1,6 @@
 package com.example.batishMoneyManager.security;
 
-import com.example.batishMoneyManager.User.UserResourceRepository;
+import com.example.batishMoneyManager.jpa.UserResourceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

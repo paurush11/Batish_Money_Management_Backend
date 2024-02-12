@@ -1,5 +1,6 @@
 package com.example.batishMoneyManager.User;
 
+import com.example.batishMoneyManager.expenseData.ExpenseData;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -11,7 +12,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name = "users")
@@ -20,8 +25,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Builder
+@ToString
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,6 +52,30 @@ public class User implements UserDetails {
     @Size(min = 3, message = "Username must be at least 3 characters long")
     private String userName;
 
+    // Bidirectional relationship
+
+     private Set<String> expensesIds;
+
+    public void addExpense(ExpenseData expense) {
+        System.out.println(expense.getId());
+        if(this.expensesIds == null){
+            this.expensesIds = new HashSet<>();
+        }
+        expensesIds.add(String.valueOf(expense.getId()));
+
+    }
+    public void deleteExpense(String Id){
+        if(this.expensesIds == null){
+           return;
+        }
+      this.expensesIds =  this.expensesIds.stream().filter(expensesId-> !expensesId.equals(Id)).collect(Collectors.toSet());
+    }
+    public void deleteAllExpense(){
+        if(this.expensesIds == null){
+           return;
+        }
+      this.expensesIds =  new HashSet<>();
+    }
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -127,6 +156,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 
 }

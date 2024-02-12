@@ -7,14 +7,10 @@ import java.util.Optional;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import org.hibernate.Hibernate;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import jakarta.validation.Valid;
@@ -28,12 +24,19 @@ public class UserController {
 	@GetMapping("/")
 	public ResponseEntity<List<User>> getUsers(){
 		List<User> users = service.getAllUsers().isEmpty() ? new ArrayList<User>(): service.getAllUsers();
+		System.out.println(users);
 		return ResponseEntity.ok(users);
 	}
 	@GetMapping("/{id:\\d+}")
 	public ResponseEntity<Optional<User>> getUser(@PathVariable Integer id){
 		System.out.println(id);
 		Optional<User> savedUser =service.getUserById(id);
+		return ResponseEntity.ok(savedUser);
+	}
+
+	@GetMapping("/user/{username}")
+	public ResponseEntity<Optional<User>> getUserByUsername(@PathVariable String username){
+		Optional<User> savedUser =service.getUserByUsername(username);
 		return ResponseEntity.ok(savedUser);
 	}
 	@GetMapping("/{email:.+@.+.+}")
@@ -56,4 +59,15 @@ public class UserController {
 				.toUri();
 		return ResponseEntity.created(location).build();
 	}
+
+	@DeleteMapping("/{id:\\d+}")
+	public ResponseEntity<Void> deleteUser (@PathVariable Integer id) throws Exception{
+		Optional<User> user = service.getUserById(id);
+		if(user.isPresent()) service.deleteUser(user.get());
+		else{
+			throw new Exception("User Not found");
+		}
+		return ResponseEntity.ok().build();
+	}
+
 }
