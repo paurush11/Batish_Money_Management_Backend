@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +28,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Builder
 @ToString
+@Document(indexName = "user", createIndex = true)
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -54,17 +56,37 @@ public class User implements UserDetails {
 
     // Bidirectional relationship
 
-     private Set<String> expensesIds;
+    private Set<Integer> expensesIds;
+    private Set<Integer> friendsIds;
 
+    public void addFriend(Integer Id){
+        if(this.friendsIds == null){
+            this.friendsIds = new HashSet<>();
+        }
+        this.friendsIds.add(Id);
+    }
+
+    public void removeFriend(Integer Id){
+        if(this.friendsIds == null){
+            return;
+        }
+        this.friendsIds =  this.friendsIds.stream().filter(friendsId-> !friendsId.equals(Id)).collect(Collectors.toSet());
+    }
+    public void removeAllFriends(){
+        if(this.friendsIds == null){
+            return;
+        }
+        this.friendsIds =  new HashSet<>();
+    }
     public void addExpense(ExpenseData expense) {
         System.out.println(expense.getId());
         if(this.expensesIds == null){
             this.expensesIds = new HashSet<>();
         }
-        expensesIds.add(String.valueOf(expense.getId()));
+        this.expensesIds.add(expense.getId());
 
     }
-    public void deleteExpense(String Id){
+    public void deleteExpense(Integer Id){
         if(this.expensesIds == null){
            return;
         }

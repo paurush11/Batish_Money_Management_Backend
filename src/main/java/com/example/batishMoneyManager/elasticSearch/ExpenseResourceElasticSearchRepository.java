@@ -1,7 +1,9 @@
 package com.example.batishMoneyManager.elasticSearch;
 
 
-import com.example.batishMoneyManager.expenseData.ExpenseData;
+import com.example.batishMoneyManager.expenseData.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
@@ -19,5 +21,13 @@ public interface ExpenseResourceElasticSearchRepository extends ElasticsearchRep
     List<ExpenseData> findByPaymentMethod(String paymentMethod);
     List<ExpenseData> findByRemindersTrue();
     // For pageable results, you can directly use Pageable as an argument
+
+    Page<ExpenseData> findByCategory(Category category, Pageable pageable);
+
+    Page<ExpenseData> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable);
+
+    Page<ExpenseData> findByFrequency(Frequency frequency, Pageable pageable);
+
+    Page<ExpenseData> findByPaymentMethod(PaymentMethod paymentMethod, Pageable pageable);
 
 }

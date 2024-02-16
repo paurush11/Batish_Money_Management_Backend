@@ -2,9 +2,13 @@ package com.example.batishMoneyManager.expenseData;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+
+import java.util.List;
 
 
 @Entity
@@ -14,12 +18,12 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Document(indexName = "expenses", createIndex = true)
+@Document(indexName = "expense", createIndex = true)
 public class ExpenseData {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@org.springframework.data.annotation.Id
 	private Integer id;
+	private Integer createdById;
 	private String name;
 	private String dueDate;
 	private Double amount;
@@ -39,5 +43,7 @@ public class ExpenseData {
 	private String notes;
 	private Boolean automaticBillDetection;
 	private Boolean alertsForPriceChanges;
-	private Integer userId;
+	@ElementCollection
+	private List<ExpenseUserSplits> userSplits;
+
 }

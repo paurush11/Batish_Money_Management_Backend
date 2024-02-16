@@ -2,7 +2,9 @@ package com.example.batishMoneyManager.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import com.example.batishMoneyManager.Exceptions.CustomUserNotFoundException;
 import com.example.batishMoneyManager.jpa.UserResourceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,19 @@ public class UserService {
 
 	public void deleteUser(User user) {
 		repository.delete(user);
+	}
+
+	public void validateUsersExist(Set<Integer> userIds) {
+		List<User> users = userIds.stream()
+				.map(this::getUserById)
+				.filter(Optional::isPresent)
+				.map(Optional::get)
+				.toList();
+
+		if (users.size() != userIds.size()) {
+			throw new CustomUserNotFoundException("One or more users not found");
+		}
+		// Optionally, you can further process users, if needed.
 	}
 
 }

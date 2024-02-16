@@ -26,7 +26,7 @@ public interface ExpenseResourceJPARepository extends JpaRepository<ExpenseData,
 
 	void deleteAll();
 
-	
+
 	List<ExpenseData> findByCategory(Category category);
 
 	// Find expenses by payment status

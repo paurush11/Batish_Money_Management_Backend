@@ -1,17 +1,17 @@
 package com.example.batishMoneyManager.expenseData;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-import java.util.Set;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpensesRequest {
-    private List<ExpenseRequest> expenseRequest;
+@Embeddable
+public class ExpenseUserSplits {
+    private Integer userId;
+    private Double splitAmount;
 }
